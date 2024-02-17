@@ -457,7 +457,7 @@ footer {
 }
 
 .hero-img-container img {
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 .hero-img-container span {
@@ -687,7 +687,7 @@ footer {
 }
 
 .skintype-img-container img {
-  max-width: 100%;
+  /* max-width: 100%; */
   transition: all 0.4s ease-out;
 }
 

@@ -1,10 +1,20 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import HeroSlider from "./components/home/HeroSlider";
+import Instagram from "./components/home/Instagram";
+import OurValues from "./components/home/OurValues";
+import SkinType from "./components/home/SkinType";
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className={styles.main}>
-      <p>hello</p>
-    </main>
+    <section className="home">
+      <div className="animation-wrapper">
+        <h1>Just A Dash Beauty</h1>
+        <HeroSlider />
+        <OurValues />
+        <SkinType />
+        <Instagram />
+      </div>
+    </section>
   );
-}
+};
+
+export default Home;
