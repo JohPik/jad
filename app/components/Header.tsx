@@ -107,13 +107,17 @@ export const Header = () => {
                 <div className="dropdown-col-1">
                   <span>Skin Type</span>
                   {skinTypes.map((skin) => (
-                    <Link href="/">{skin}</Link>
+                    <Link key={skin} href="/">
+                      {skin}
+                    </Link>
                   ))}
                 </div>
                 <div className="dropdown-col-2">
                   <span>Product Type</span>
                   {productTypes.map((prod) => (
-                    <Link href="/">{prod}</Link>
+                    <Link key={prod} href="/">
+                      {prod}
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -189,7 +193,7 @@ export const Header = () => {
             <div className="sublist-col-1">
               <span>Skin Type</span>
               {skinTypes.map((skin) => (
-                <Link href="/" onClick={hideMobilMenu}>
+                <Link key={skin} href="/" onClick={hideMobilMenu}>
                   {skin}
                 </Link>
               ))}
@@ -197,7 +201,7 @@ export const Header = () => {
             <div className="sublist-col-2">
               <span>Product Type</span>
               {productTypes.map((prod) => (
-                <Link href="/" onClick={hideMobilMenu}>
+                <Link key={prod} href="/" onClick={hideMobilMenu}>
                   {prod}
                 </Link>
               ))}

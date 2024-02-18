@@ -5,17 +5,16 @@ const About = () => (
       <p>
         Hi there,
         <br />
-        <br />
-        I’m so happy you stopped by to read more about us.
+        <br />I{"’"}m so happy you stopped by to read more about us.
         <br />
         <br />
         I’m Greta and I am the founder of{" "}
-        <span className="bold">JUST A DASH.</span> I'm originally from Italy and
-        I moved permanently to sunny Queensland about 5 years ago. For the past
-        few years I have pretty much just worked in hospitality while continuing
-        to pursue my hobby (or obsession, let’s face it) of making cosmetics at
-        home. I started to make my own personal care products many years ago,
-        out of frustration.
+        <span className="bold">JUST A DASH.</span> I{"’"}m originally from Italy
+        and I moved permanently to sunny Queensland about 5 years ago. For the
+        past few years I have pretty much just worked in hospitality while
+        continuing to pursue my hobby (or obsession, let{"’"}s face it) of
+        making cosmetics at home. I started to make my own personal care
+        products many years ago, out of frustration.
         <br />I tried so many different products over the past few years, but I
         have never found a brand I truly loved. There was always a problem:
         false marketing claims, nasty ingredients, ridiculous price, off-putting
@@ -41,7 +40,8 @@ const About = () => (
         <br />
       </p>
       <p>
-        Here’s what we, at <span className="bold">JUST A DASH</span>, stand for:
+        Here{"’"}s what we, at <span className="bold">JUST A DASH</span>, stand
+        for:
       </p>
       <ul>
         <li>

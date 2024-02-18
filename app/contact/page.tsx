@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const Contact = () => {
@@ -7,26 +8,26 @@ const Contact = () => {
         <h1 className="underline">Contact</h1>
         <h2>Get in Touch</h2>
         <p>
-          Don't hesitate to contact us if you have any question, comment or
+          Don{"’"}t hesitate to contact us if you have any question, comment or
           feedback. We are all ears!
         </p>
         <div className="follow-us">
           <Link href="/">
-            <img
+            <Image
               src="/images/pictograms/facebook.svg"
               alt="facebook"
               className="social facebook"
             />
           </Link>
           <Link href="/">
-            <img
+            <Image
               src="/images/pictograms/instagram.svg"
               alt="instagram"
               className="social instagram"
             />
           </Link>
           <Link href="/">
-            <img
+            <Image
               src="/images/pictograms/linkedin.svg"
               alt="linkedin"
               className="social linkedin"
