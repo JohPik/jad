@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect, useRef, Dispatch, SetStateAction } from "react";
+import { useState, useEffect, Dispatch, SetStateAction } from "react";
 import logo from "../../public/images/pictograms/Just-A-Dash-Beauty_Logo.svg";
+import basket from "../../public/images/pictograms/basket.svg";
 import Image from "next/image";
 
 enum SKIN_TYPE {
@@ -136,11 +137,7 @@ export const Header = () => {
 
         <div className="cart-container">
           <Link href="/cart" className="cartLink">
-            <img
-              src="/images/pictograms//basket.svg"
-              alt="Cart"
-              className="cart-icon"
-            />
+            <Image src={basket} alt="Cart" className="cart-icon" />
             {cartLength < 1 ? null : (
               <div className="cartItems">{cartLength}</div>
             )}
