@@ -1087,7 +1087,8 @@ button.form-submit:hover::before {
 }
 
 .shop-list .product-container .img-container {
-  width: 230px;
+  min-width: 230px;
+  padding-top: 98.33%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1102,7 +1103,8 @@ button.form-submit:hover::before {
 }
 
 .shop-list .product-container img {
-  max-width: 230px;
+  width: 100%;
+  height: auto;
   transition: all 0.2s ease-out;
 }
 
