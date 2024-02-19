@@ -4,26 +4,25 @@ import Link from "next/link";
 
 export type ThumbnailProduct = Pick<
   PRODUCT,
-  "id" | "name" | "subDescription" | "image"
+  "id" | "name" | "subDescription" | "image" | "slug"
 >;
 
 type ThumbnailProps = {
-  url?: string;
   inCart?: boolean;
 } & ThumbnailProduct;
 
 const Thumbnail = ({
   id,
+  slug,
   name,
   subDescription,
-  url = "/",
   image,
   inCart = false,
 }: ThumbnailProps) => {
   return (
     <div key={id} className="product-container">
       {inCart ? <div className="already-in-cart">Already in Cart</div> : null}
-      <Link href={url}>
+      <Link href={`shop/${slug}`}>
         <div className="img-container">
           <Image
             src={image.url}
@@ -36,7 +35,7 @@ const Thumbnail = ({
         </div>
       </Link>
 
-      <Link href={url}>
+      <Link href={`shop/${slug}`}>
         <h3>{name}</h3>
       </Link>
       <h4>{subDescription}</h4>

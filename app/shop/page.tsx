@@ -2,7 +2,13 @@
 import { getProducts } from "@/services";
 import { useQuery } from "@tanstack/react-query";
 import Thumbnail, { ThumbnailProduct } from "./Thumbnail";
-import { SKIN_TYPE, PRODUCT_TYPE, PRODUCT } from "@/utils/constants";
+import {
+  SKIN_TYPE,
+  PRODUCT_TYPE,
+  PRODUCT,
+  ProductArray,
+  SkinArray,
+} from "@/utils/constants";
 import { useEffect, useState } from "react";
 import { Filter } from "./Fitler";
 
@@ -42,13 +48,13 @@ type ShopProps = {
 const Shop = ({ searchParams }: ShopProps) => {
   const productParam =
     searchParams?.hasOwnProperty(PRODUCT) &&
-    Object.values(PRODUCT_TYPE).includes(searchParams?.product as PRODUCT_TYPE)
+    ProductArray.includes(searchParams?.product as PRODUCT_TYPE)
       ? (searchParams.product as PRODUCT_TYPE)
       : undefined;
 
   const skinParam =
     searchParams?.hasOwnProperty(SKIN) &&
-    Object.values(SKIN_TYPE).includes(searchParams?.skin as SKIN_TYPE)
+    SkinArray.includes(searchParams?.skin as SKIN_TYPE)
       ? (searchParams.skin as SKIN_TYPE)
       : undefined;
 

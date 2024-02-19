@@ -10,6 +10,7 @@ export const getProducts = async () => {
       products(first: 18) {
         id
         name
+        slug
         subDescription
         skinType
         productType
@@ -20,6 +21,37 @@ export const getProducts = async () => {
     }
   `;
 
+  const result = await graphqlAPI.request(query);
+  return result;
+};
+
+export const getSingleProduct = async (slug: string) => {
+  console.log(slug);
+  const query = gql`
+    query SingleProduct {
+      product(where: { slug: "${slug}" }) {
+        id
+        name
+        subDescription
+        skinType
+        productType
+        description
+        loveList {
+          id
+        }
+        directions
+        ingredients
+        size
+        price
+        image {
+          url
+        }
+        color {
+          hex
+        }
+      }
+    }
+  `;
   const result = await graphqlAPI.request(query);
   return result;
 };
