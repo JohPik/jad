@@ -375,7 +375,8 @@ footer {
 }
 
 .footer-col-3 .social {
-  height: 26px;
+  width: 22px;
+  height: auto;
   transition: all 0.2s ease-out;
 }
 
@@ -457,7 +458,8 @@ footer {
 }
 
 .hero-img-container img {
-  /* max-width: 100%; */
+  max-width: 100%;
+  height: auto;
 }
 
 .hero-img-container span {
@@ -592,6 +594,7 @@ footer {
   padding-top: 15px;
   display: flex;
   justify-content: space-around;
+  position: relative;
 }
 
 .pictogram-sub-container {
@@ -601,7 +604,7 @@ footer {
 
 .pictogram-sub-container img {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .ingredients {
@@ -692,7 +695,8 @@ footer {
 }
 
 .skintype-img-container img {
-  /* max-width: 100%; */
+  max-width: 100%;
+  height: auto;
   transition: all 0.4s ease-out;
 }
 
@@ -828,7 +832,8 @@ footer {
 }
 
 .contact-page .follow-us .social {
-  height: 26px;
+  width: 22px;
+  height: auto;
   transition: all 0.2s ease-out;
 }
 
@@ -2239,6 +2244,11 @@ span.go-back-link:before {
     width: 28%;
   }
 
+  .pictogram-sub-container img {
+    max-width: 77px;
+    height: auto;
+  }
+
   /* Instagram */
   .insta-picts {
     max-width: 30%;
@@ -2401,7 +2411,7 @@ span.go-back-link:before {
     justify-content: center;
   }
 
-  img.social.instagram {
+  .footer-col-3 img.social.instagram {
     padding: 0 20px;
   }
 

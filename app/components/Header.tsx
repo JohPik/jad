@@ -103,7 +103,7 @@ export const Header = () => {
         <nav className="navbar-desktop">
           <ul className="nav-menu">
             <li className="primary-nav-item">
-              <Link href="/shop/skintype=all&prodtype=all">SHOP</Link>
+              <Link href="/shop">SHOP</Link>
               <div className="dropdown-content">
                 <div className="dropdown-col-1">
                   <span>Skin Type</span>

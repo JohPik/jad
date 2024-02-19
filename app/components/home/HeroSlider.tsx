@@ -9,30 +9,15 @@ const HeroSlider = () => {
     <section className="hero-slider">
       <div className="hero-img-container">
         <div className="polaroid-container first">
-          <Image
-            src={hero1}
-            alt="Model- About Page"
-            width={350}
-            object-fit="contain"
-          />
+          <Image src={hero1} alt="Model- About Page" />
           <span>#Good Bye Sunshine</span>
         </div>
         <div className="polaroid-container second">
-          <Image
-            src={hero2}
-            alt="Model- About Page"
-            width={350}
-            object-fit="contain"
-          />
+          <Image src={hero2} alt="Model- About Page" />
           <span>#Escape in Bora Bora</span>
         </div>
         <div className="polaroid-container third">
-          <Image
-            src={hero3}
-            alt="Model- About Page"
-            width={350}
-            object-fit="contain"
-          />
+          <Image src={hero3} alt="Model- About Page" />
           <span>#No Handyman Needed</span>
         </div>
       </div>

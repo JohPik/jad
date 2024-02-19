@@ -44,8 +44,7 @@ const Skintype = () => {
                 <Image
                   src={skin.picture}
                   alt={`shop ${skin.name} range`}
-                  height={170}
-                  object-fit="contain"
+                  object-fit="fill"
                 />
               </div>
             </Link>

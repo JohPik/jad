@@ -1,6 +1,7 @@
 "use client";
 import { getProducts } from "@/services";
 import { useQuery } from "@tanstack/react-query";
+import Thumbnail from "./Thumbnail";
 
 type Props = {
   searchParams?: { [key: string]: string | undefined };
@@ -44,7 +45,9 @@ const ProductList = ({
   if (data) {
     return (
       <section className="shop-list">
-        <p>HELLLLO</p>
+        {data.products.map((product) => (
+          <Thumbnail key={product.id} {...product} />
+        ))}
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>

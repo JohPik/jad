@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import facebook from "../../public/images/pictograms/facebook.svg";
+import insta from "../../public/images/pictograms/instagram.svg";
+import linkedin from "../../public/images/pictograms/linkedin.svg";
 
 const Contact = () => {
   return (
@@ -13,25 +16,13 @@ const Contact = () => {
         </p>
         <div className="follow-us">
           <Link href="/">
-            <Image
-              src="/images/pictograms/facebook.svg"
-              alt="facebook"
-              className="social facebook"
-            />
+            <Image src={facebook} alt="facebook" className="social facebook" />
           </Link>
           <Link href="/">
-            <Image
-              src="/images/pictograms/instagram.svg"
-              alt="instagram"
-              className="social instagram"
-            />
+            <Image src={insta} alt="instagram" className="social instagram" />
           </Link>
           <Link href="/">
-            <Image
-              src="/images/pictograms/linkedin.svg"
-              alt="linkedin"
-              className="social linkedin"
-            />
+            <Image src={linkedin} alt="linkedin" className="social linkedin" />
           </Link>
         </div>
         <div className="contact-main-container">

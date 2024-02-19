@@ -1,5 +1,8 @@
 import Image from "next/image";
-import React from "react";
+import vegan from "../../../public/images/pictograms/vegan.svg";
+import crueltyfree from "../../../public/images/pictograms/crueltyfree.svg";
+import natural from "../../../public/images/pictograms/natural.svg";
+import aussie from "../../../public/images/pictograms/aussie.svg";
 
 const OurValues = () => {
   return (
@@ -9,35 +12,21 @@ const OurValues = () => {
 
         <div className="pictogram-main-container">
           <div className="pictogram-sub-container">
-            <Image
-              src="/images/pictograms/vegan.svg"
-              alt="Vegan Products - Just A Dash Beauty"
-              width={100}
-              height={100}
-            />
+            <Image src={vegan} alt="Vegan Products - Just A Dash Beauty" />
           </div>
           <div className="pictogram-sub-container">
             <Image
-              src="/images/pictograms/crueltyfree.svg"
+              src={crueltyfree}
               alt="Cruelty Free Products - Just A Dash Beauty"
-              width={100}
-              height={100}
             />
           </div>
           <div className="pictogram-sub-container">
-            <Image
-              src="/images/pictograms/natural.svg"
-              alt="Natural Products - Just A Dash Beauty"
-              width={100}
-              height={100}
-            />
+            <Image src={natural} alt="Natural Products - Just A Dash Beauty" />
           </div>
           <div className="pictogram-sub-container mobile-hide">
             <Image
-              src="/images/pictograms/aussie.svg"
+              src={aussie}
               alt="Australian Products - Just A Dash Beauty"
-              width={100}
-              height={100}
             />
           </div>
         </div>
@@ -69,10 +58,3 @@ const OurValues = () => {
 };
 
 export default OurValues;
-
-/*
-
-
-
-
-*/
