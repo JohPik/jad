@@ -11,6 +11,8 @@ export const getProducts = async () => {
         id
         name
         subDescription
+        skinType
+        productType
         image {
           url
         }

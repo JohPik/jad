@@ -1,19 +1,21 @@
+import { PRODUCT } from "@/utils/constants";
 import Image from "next/image";
 import Link from "next/link";
 
+export type ThumbnailProduct = Pick<
+  PRODUCT,
+  "id" | "name" | "subDescription" | "image"
+>;
+
 type ThumbnailProps = {
-  id: string;
-  name: string;
-  subName: string;
   url?: string;
-  image: string;
   inCart?: boolean;
-};
+} & ThumbnailProduct;
 
 const Thumbnail = ({
   id,
   name,
-  subName,
+  subDescription,
   url = "/",
   image,
   inCart = false,
@@ -37,7 +39,7 @@ const Thumbnail = ({
       <Link href={url}>
         <h3>{name}</h3>
       </Link>
-      <h4>{subName}</h4>
+      <h4>{subDescription}</h4>
     </div>
   );
 };

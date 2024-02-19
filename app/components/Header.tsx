@@ -4,26 +4,10 @@ import { useState, useEffect, Dispatch, SetStateAction } from "react";
 import logo from "../../public/images/pictograms/Just-A-Dash-Beauty_Logo.svg";
 import basket from "../../public/images/pictograms/basket.svg";
 import Image from "next/image";
+import { PRODUCT_TYPE, SKIN_TYPE } from "@/utils/constants";
 
-enum SKIN_TYPE {
-  OILY = "Oily",
-  DRY = " Dry",
-  SENSITIVE = "Sensitive",
-  PROBLEMATIC = "Problematic",
-  NORMAL = "Normal",
-}
-
-enum PRODUCT_TYPE {
-  CLEANSER = "Cleanser",
-  MIST = "Toning Mist",
-  EXFOLIANT = "Exfoliant",
-  SERUM = "Serum",
-  MOISTURISER = "Moisturiser",
-  TREATMENT = "Treatment",
-}
-
-const skinTypes = Object.values(SKIN_TYPE);
-const productTypes = Object.values(PRODUCT_TYPE);
+const SKINS = Object.values(SKIN_TYPE);
+const PRODUCTS = Object.values(PRODUCT_TYPE);
 const VISIBLE_CLASS = "visible";
 
 const MenuButton = ({
@@ -107,7 +91,7 @@ export const Header = () => {
               <div className="dropdown-content">
                 <div className="dropdown-col-1">
                   <span>Skin Type</span>
-                  {skinTypes.map((skin) => (
+                  {SKINS.map((skin) => (
                     <Link key={skin} href="/">
                       {skin}
                     </Link>
@@ -115,7 +99,7 @@ export const Header = () => {
                 </div>
                 <div className="dropdown-col-2">
                   <span>Product Type</span>
-                  {productTypes.map((prod) => (
+                  {PRODUCTS.map((prod) => (
                     <Link key={prod} href="/">
                       {prod}
                     </Link>
@@ -189,7 +173,7 @@ export const Header = () => {
             </span>
             <div className="sublist-col-1">
               <span>Skin Type</span>
-              {skinTypes.map((skin) => (
+              {SKINS.map((skin) => (
                 <Link key={skin} href="/" onClick={hideMobilMenu}>
                   {skin}
                 </Link>
@@ -197,7 +181,7 @@ export const Header = () => {
             </div>
             <div className="sublist-col-2">
               <span>Product Type</span>
-              {productTypes.map((prod) => (
+              {PRODUCTS.map((prod) => (
                 <Link key={prod} href="/" onClick={hideMobilMenu}>
                   {prod}
                 </Link>
