@@ -1,12 +1,19 @@
 "use client";
 import { getSingleProduct } from "@/services";
-import { PRODUCT, SLUGS, SlugArray } from "@/utils/constants";
+import {
+  CartProduct,
+  PRODUCT,
+  SlugArray,
+  ThumbnailProduct,
+} from "@/utils/constants";
 import { useQuery } from "@tanstack/react-query";
 import { notFound } from "next/navigation";
 import ExtraContent from "./ExtraContent";
 import Recommendations from "./Recomendation";
 import { useState } from "react";
 import { ModalImage } from "./ModalImage";
+import { useCartStore } from "@/app/hooks/useCartStore";
+import { ModalCart } from "./ModalCart";
 
 const SLUG_KEY = "productName";
 
@@ -29,10 +36,22 @@ const SingleProduct = ({ params }: { params: { slug: string } }) => {
 export default SingleProduct;
 
 const Product = ({ productName }: { productName: string }) => {
+  /**
+   * Modals Management
+   */
   const [isModalImageOpen, setIsModalImageOpen] = useState(false);
+  const toggleModalImg = () => setIsModalImageOpen((prev) => !prev);
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
+  const toggleModalCart = () => setIsCartModalOpen((prev) => !prev);
 
-  const toggleModalImg = () => setIsModalImageOpen(!isModalImageOpen);
+  const [quantity, setQuantity] = useState(1);
+
+  /**
+   * Cart Management
+   */
+  const cart = useCartStore((state) => state.cart);
+  const addToCart = useCartStore((state) => state.addToCart);
+  const clearCart = useCartStore((state) => state.clearCart);
 
   const { data, isLoading, error, isFetching } = useQuery({
     queryKey: ["singleProduct"],
@@ -56,12 +75,37 @@ const Product = ({ productName }: { productName: string }) => {
     price,
     image,
     color,
+    slug,
   } = data?.product as PRODUCT;
+
+  const isProductInCart = cart.some((product) => product.id === id);
+  const handleAddtoCartClick = () => {
+    addToCart({
+      id,
+      name,
+      size,
+      image,
+      subDescription,
+      price,
+      slug,
+      quantity,
+    });
+
+    toggleModalCart();
+  };
 
   return (
     <>
       {isModalImageOpen && (
         <ModalImage name={name} imgSrc={image.url} toggle={toggleModalImg} />
+      )}
+      {isCartModalOpen && isProductInCart && (
+        <ModalCart
+          name={name}
+          imgSrc={image.url}
+          price={price}
+          toggle={toggleModalCart}
+        />
       )}
       <div>
         <section className="single-product-page">
@@ -86,39 +130,33 @@ const Product = ({ productName }: { productName: string }) => {
             </div>
             <span className="prod-page-price">${price}</span>
             <div className="button-section">
-              {/* {inCart ? null : (
-              <div className="prod-qty-section">
-                Qty:
-                <button
-                  className="qty-slct"
-                  disabled={qty < 2}
-                  onClick={() => this.setState({ qty: this.state.qty - 1 })}
-                >
-                  -
-                </button>
-                {qty}
-                <button
-                  className="qty-slct"
-                  onClick={() => this.setState({ qty: qty + 1 })}
-                >
-                  +
-                </button>
-              </div>
-            )} */}
-              {/* <button
-              className={`add-to-cart ${image.url}`}
-              disabled={inCart}
-              onClick={() => {
-                addToCart(id, qty);
-                openModalAddedToCart();
-              }}
-            >
-              {inCart ? (
-                <Fragment>in Cart</Fragment>
-              ) : (
-                <Fragment>Add to Cart</Fragment>
+              {!isProductInCart && (
+                <div className="prod-qty-section">
+                  Qty:
+                  <button
+                    className="qty-slct"
+                    disabled={quantity < 2}
+                    onClick={() => setQuantity((prev) => prev - 1)}
+                  >
+                    -
+                  </button>
+                  {quantity}
+                  <button
+                    className="qty-slct"
+                    onClick={() => setQuantity((prev) => prev + 1)}
+                  >
+                    +
+                  </button>
+                </div>
               )}
-            </button> */}
+              <button
+                className={`add-to-cart ${image.url}`}
+                disabled={isProductInCart}
+                onClick={handleAddtoCartClick}
+              >
+                <>{isProductInCart ? "in Cart" : "Add to Cart"}</>
+              </button>
+              <button onClick={clearCart}>clearCart</button>
             </div>
             <ExtraContent
               id={id}

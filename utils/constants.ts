@@ -36,6 +36,16 @@ export type PRODUCT = {
   color: { hex: string };
 };
 
+export type ThumbnailProduct = Pick<
+  PRODUCT,
+  "id" | "name" | "subDescription" | "image" | "slug"
+>;
+
+export type CartProduct = Pick<
+  PRODUCT,
+  "id" | "name" | "subDescription" | "image" | "slug" | "price" | "size"
+> & { quantity: number };
+
 export enum SLUGS {
   GOOD_BYE_SUNSHINE = "good-bye-sunshine",
   ALL_UNDER_CONTROL = "all-under-control",

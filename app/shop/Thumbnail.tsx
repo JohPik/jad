@@ -1,11 +1,6 @@
-import { PRODUCT } from "@/utils/constants";
+import { PRODUCT, ThumbnailProduct } from "@/utils/constants";
 import Image from "next/image";
 import Link from "next/link";
-
-export type ThumbnailProduct = Pick<
-  PRODUCT,
-  "id" | "name" | "subDescription" | "image" | "slug"
->;
 
 type ThumbnailProps = {
   inCart?: boolean;
