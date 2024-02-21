@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ThumbnailProduct } from "../Thumbnail";
 
-const Recommendation = ({
+const Recommendations = ({
   recommendations,
 }: {
   recommendations?: ThumbnailProduct[];
@@ -36,4 +36,4 @@ const Recommendation = ({
   );
 };
 
-export default Recommendation;
+export default Recommendations;

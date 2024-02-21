@@ -1376,11 +1376,9 @@ button.qty-slct:disabled:hover {
 }
 
 /* you might also like */
-
 .recommendation h2 {
   margin: 20px 0;
   text-transform: capitalize;
-  /* font-family: "bebasNeue"; */
   font-weight: normal;
   text-align: center;
 }
@@ -1389,7 +1387,9 @@ button.qty-slct:disabled:hover {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 0 50px;
+  gap: 25px;
+  row-gap: 25px;
+  margin-bottom: 25px;
 }
 
 .recommendation-container .product-container {
@@ -1567,7 +1567,7 @@ button.qty-slct:disabled:hover {
   align-items: center;
   border-radius: 50px;
   right: 20px;
-  top: 10px;
+  top: 20px;
 }
 
 .close-tag-container svg.close-tag-icon {
@@ -2383,7 +2383,7 @@ span.go-back-link:before {
     margin: 7px;
   }
 
-  .img-container,
+  /* .img-container, */
   .delete-product {
     max-width: 300px;
     margin: auto;
