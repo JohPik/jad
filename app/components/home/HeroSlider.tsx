@@ -26,7 +26,7 @@ const HeroSlider = () => {
         <h3>Embrace the nature version of yourself</h3>
         <button>
           {/* CHANGE ME! */}
-          <Link href="/shop/skintype=all&prodtype=all">SHOP NOW</Link>
+          <Link href="/shop">SHOP NOW</Link>
         </button>
       </div>
     </section>

@@ -1136,7 +1136,7 @@ button.form-submit:hover::before {
   flex-direction: row;
 }
 
-.shop .shop-main h3 {
+.shop .shop-main .filter h3 {
   font-weight: normal;
   margin-bottom: 50px;
 }

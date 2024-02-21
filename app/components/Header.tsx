@@ -4,10 +4,8 @@ import { useState, useEffect, Dispatch, SetStateAction } from "react";
 import logo from "../../public/images/pictograms/Just-A-Dash-Beauty_Logo.svg";
 import basket from "../../public/images/pictograms/basket.svg";
 import Image from "next/image";
-import { PRODUCT_TYPE, SKIN_TYPE } from "@/utils/constants";
+import { ProductArray, SkinArray } from "@/utils/constants";
 
-const SKINS = Object.values(SKIN_TYPE);
-const PRODUCTS = Object.values(PRODUCT_TYPE);
 const VISIBLE_CLASS = "visible";
 
 const MenuButton = ({
@@ -91,7 +89,7 @@ export const Header = () => {
               <div className="dropdown-content">
                 <div className="dropdown-col-1">
                   <span>Skin Type</span>
-                  {SKINS.map((skin) => (
+                  {SkinArray.map((skin) => (
                     <Link key={skin} href="/">
                       {skin}
                     </Link>
@@ -99,9 +97,9 @@ export const Header = () => {
                 </div>
                 <div className="dropdown-col-2">
                   <span>Product Type</span>
-                  {PRODUCTS.map((prod) => (
+                  {ProductArray.map((prod) => (
                     <Link key={prod} href="/">
-                      {prod}
+                      {prod === "toning_mist" ? "toning mist" : prod}
                     </Link>
                   ))}
                 </div>
@@ -173,17 +171,25 @@ export const Header = () => {
             </span>
             <div className="sublist-col-1">
               <span>Skin Type</span>
-              {SKINS.map((skin) => (
-                <Link key={skin} href="/" onClick={hideMobilMenu}>
+              {SkinArray.map((skin) => (
+                <Link
+                  key={skin}
+                  href={`shop?skin=${skin}`}
+                  onClick={hideMobilMenu}
+                >
                   {skin}
                 </Link>
               ))}
             </div>
             <div className="sublist-col-2">
               <span>Product Type</span>
-              {PRODUCTS.map((prod) => (
-                <Link key={prod} href="/" onClick={hideMobilMenu}>
-                  {prod}
+              {ProductArray.map((prod) => (
+                <Link
+                  key={prod}
+                  href={`shop?product=${prod}`}
+                  onClick={hideMobilMenu}
+                >
+                  {prod === "toning_mist" ? "toning mist" : prod}
                 </Link>
               ))}
             </div>

@@ -9,23 +9,23 @@ import dull from "../../../public/images/homePage/Dull-Dark-Spots | Just-A-Dash.
 import normal from "../../../public/images/homePage/Normal | Just-A-Dash.jpg";
 
 const skins = [
-  { name: "oily", picture: oily, url: "/shop/skintype=oily&prodtype=all" },
-  { name: "dry", picture: dry, url: "/shop/skintype=dry&prodtype=all" },
+  { name: "oily", picture: oily, url: "/shop?skin=oily" },
+  { name: "dry", picture: dry, url: "/shop?skin=dry" },
   {
     name: "sensitive",
     picture: sensitive,
-    url: "/shop/skintype=sensitive&prodtype=all",
+    url: "/shop?skin=sensitive",
   },
   {
     name: "problematic",
     picture: problematic,
-    url: "/shop/skintype=problematic&prodtype=all",
+    url: "/shop?skin=problematic",
   },
   { name: "dull", picture: dull, url: "/shop/skintype=normal&prodtype=all" },
   {
     name: "normal",
     picture: normal,
-    url: "/shop/skintype=normal&prodtype=all",
+    url: "/shop?skin=normal",
   },
 ];
 
