@@ -14,11 +14,11 @@ export const Filter = ({
   return (
     <div className={`filter ${showFilter ? "visible" : ""}`}>
       <h3>Filter</h3>
-      <p>
+      {/* <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit possimus
         ipsa, hic recusandae ad inventore! Eos fuga vel qui eum, aspernatur id
         placeat deleniti, quam officiis neque ducimus maiores maxime!
-      </p>
+      </p> */}
     </div>
   );
 };

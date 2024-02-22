@@ -1,16 +1,18 @@
 "use client";
 import { getProducts } from "@/services";
 import { useQuery } from "@tanstack/react-query";
-import Thumbnail, { ThumbnailProduct } from "./Thumbnail";
+
 import {
   SKIN_TYPE,
   PRODUCT_TYPE,
   PRODUCT,
   ProductArray,
   SkinArray,
+  ThumbnailProduct,
 } from "@/utils/constants";
 import { useEffect, useState } from "react";
 import { Filter } from "./Fitler";
+import Thumbnail from "./Thumbnail";
 
 const PRODUCT = "product";
 const SKIN = "skin";
@@ -73,6 +75,7 @@ const Shop = ({ searchParams }: ShopProps) => {
 
   useEffect(() => {
     if (data) {
+      console.log(data);
       const products = data.products;
 
       setProductToDisplay(
@@ -87,11 +90,11 @@ const Shop = ({ searchParams }: ShopProps) => {
     <section className="shop">
       <h1 className="underline">Shop</h1>
       <div className="shop-main">
-        <Filter
+        {/* <Filter
           skinParam={skinParam}
           productParam={productParam}
           showFilter={showFilter}
-        />
+        /> */}
         <ProductList
           products={productToDisplay}
           isLoading={isLoading}

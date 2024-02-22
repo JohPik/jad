@@ -18,7 +18,7 @@ const BreadCrumb = () => {
         {" > "}
         <Link href="/shop">Shop</Link>
         {" > "}
-        <span>{subName}</span>
+        <span>{subName.substring(5)}</span>
       </section>
     );
   }

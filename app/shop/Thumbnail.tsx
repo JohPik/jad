@@ -1,10 +1,7 @@
-import { PRODUCT, ThumbnailProduct } from "@/utils/constants";
+import { ThumbnailProduct } from "@/utils/constants";
 import Image from "next/image";
 import Link from "next/link";
-
-type ThumbnailProps = {
-  inCart?: boolean;
-} & ThumbnailProduct;
+import { useCartStore } from "../hooks/useCartStore";
 
 const Thumbnail = ({
   id,
@@ -12,11 +9,15 @@ const Thumbnail = ({
   name,
   subDescription,
   image,
-  inCart = false,
-}: ThumbnailProps) => {
+}: ThumbnailProduct) => {
+  const cart = useCartStore((state) => state.cart);
+  const isProductInCart = cart.some((product) => product.id === id);
+
   return (
     <div key={id} className="product-container">
-      {inCart ? <div className="already-in-cart">Already in Cart</div> : null}
+      {isProductInCart ? (
+        <div className="already-in-cart">Already in Cart</div>
+      ) : null}
       <Link href={`shop/${slug}`}>
         <div className="img-container">
           <Image
