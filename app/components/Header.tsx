@@ -5,6 +5,7 @@ import logo from "../../public/images/pictograms/Just-A-Dash-Beauty_Logo.svg";
 import basket from "../../public/images/pictograms/basket.svg";
 import Image from "next/image";
 import { ProductArray, SkinArray } from "@/utils/constants";
+import { useCartStore } from "../hooks/useCartStore";
 
 const VISIBLE_CLASS = "visible";
 
@@ -67,7 +68,7 @@ export const Header = () => {
         menuButton?.classList.remove(VISIBLE_CLASS));
   }, [mobileMenu]);
 
-  const cartLength = 2;
+  const cart = useCartStore((state) => state.cart);
 
   return (
     <header>
@@ -120,9 +121,7 @@ export const Header = () => {
         <div className="cart-container">
           <Link href="/cart" className="cartLink">
             <Image src={basket} alt="Cart" className="cart-icon" />
-            {cartLength < 1 ? null : (
-              <div className="cartItems">{cartLength}</div>
-            )}
+            {cart.length > 0 && <div className="cartItems">{cart.length}</div>}
           </Link>
         </div>
 

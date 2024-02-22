@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Dispatch, SetStateAction } from "react";
+import { useEffect } from "react";
 
 type ModalCartType = {
   name: string;
@@ -9,6 +9,18 @@ type ModalCartType = {
 };
 
 export const ModalCart = ({ name, imgSrc, price, toggle }: ModalCartType) => {
+  const cartContainer = document.querySelector(".cart-container");
+
+  useEffect(() => {
+    cartContainer?.classList.add("just-added");
+    const timeoutId = setTimeout(() => {
+      toggle();
+      cartContainer?.classList.remove("just-added");
+    }, 2000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
     <div className="modal">
       <div className="modal-container">

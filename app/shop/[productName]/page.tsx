@@ -45,6 +45,11 @@ const Product = ({ productName }: { productName: string }) => {
   const cart = useCartStore((state) => state.cart);
   const addToCart = useCartStore((state) => state.addToCart);
 
+  /**
+   * @todo instead of listen for fetching
+   * need to listen for change in route.
+   * probably should use ref.
+   */
   const { data, isLoading, error, isFetching } = useQuery({
     queryKey: ["singleProduct"],
     queryFn: () => getProd(productName),

@@ -1363,6 +1363,7 @@ button.qty-slct:disabled:hover {
 
 .single-product-page .extra-content h3.closed:hover {
   transform: skew(-15deg, 0deg);
+  cursor: pointer;
 }
 
 .text-dropdown {

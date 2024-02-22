@@ -27,7 +27,7 @@ export type PRODUCT = {
   skinType: SKIN_TYPE[];
   productType: PRODUCT_TYPE;
   description: string;
-  loveList: string[];
+  loveList: [{ description: string }];
   directions: string;
   ingredients: string;
   size: string;
@@ -54,11 +54,11 @@ export enum SLUGS {
   THE_POREFECT = "the-porefect",
   COOL_AS_CUCUMBER = "cool-as-cucumber",
   QUICK_FIX = "quick-fix",
-  NO_HANDY_MAN = "no-handy-man",
+  NO_HANDY_MAN = "no-handyman-needed",
   GREEN_COCKTAIL = "green-cocktail",
   BERRY_FRESH = "berry-fresh",
   ALL_ABOUT_MOISTURE = "all-about-moisture",
-  ACAI_BOWL = "acai-bowl",
+  ACAI_BOWL = "acai-bowl-on-my-face",
   LAND_OF_WONDERS = "land-of-wonders",
   SUNNY_DAY_IN_PARADISE = "sunny-day-in-paradise",
   EASY_AS = "easy-as",
