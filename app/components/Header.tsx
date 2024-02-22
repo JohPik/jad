@@ -90,7 +90,7 @@ export const Header = () => {
                 <div className="dropdown-col-1">
                   <span>Skin Type</span>
                   {SkinArray.map((skin) => (
-                    <Link key={skin} href="/">
+                    <Link key={skin} href={`shop?skin=${skin}`}>
                       {skin}
                     </Link>
                   ))}
@@ -98,7 +98,7 @@ export const Header = () => {
                 <div className="dropdown-col-2">
                   <span>Product Type</span>
                   {ProductArray.map((prod) => (
-                    <Link key={prod} href="/">
+                    <Link key={prod} href={`shop?product=${prod}`}>
                       {prod === "toning_mist" ? "toning mist" : prod}
                     </Link>
                   ))}
@@ -132,7 +132,7 @@ export const Header = () => {
           <div className="main-mobile-items">
             <ul className="nav-menu">
               <li className="primary-nav-item">
-                <Link href="/" onClick={hideMobilMenu}>
+                <Link href="/shop" onClick={hideMobilMenu}>
                   SHOP
                 </Link>
                 <span
