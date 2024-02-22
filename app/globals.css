@@ -294,6 +294,13 @@ img.logo {
   border-radius: 10px;
 }
 
+.loader {
+  min-height: calc(100vh - 426px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @keyframes ShakeMeUp {
   0% {
     transform: rotate(-20deg) scale(1.3);

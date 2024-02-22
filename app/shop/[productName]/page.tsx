@@ -1,11 +1,6 @@
 "use client";
 import { getSingleProduct } from "@/services";
-import {
-  CartProduct,
-  PRODUCT,
-  SlugArray,
-  ThumbnailProduct,
-} from "@/utils/constants";
+import { PRODUCT, SlugArray } from "@/utils/constants";
 import { useQuery } from "@tanstack/react-query";
 import { notFound } from "next/navigation";
 import ExtraContent from "./ExtraContent";
@@ -14,13 +9,11 @@ import { useState } from "react";
 import { ModalImage } from "./ModalImage";
 import { useCartStore } from "@/app/hooks/useCartStore";
 import { ModalCart } from "./ModalCart";
+import { Loader } from "@/app/components/loader";
 
 const SLUG_KEY = "productName";
 
-const getProd = async (slug: string) => {
-  const res = await getSingleProduct(slug);
-  return res;
-};
+const getProd = async (slug: string) => await getSingleProduct(slug);
 
 const SingleProduct = ({ params }: { params: { slug: string } }) => {
   const productName =
@@ -51,16 +44,16 @@ const Product = ({ productName }: { productName: string }) => {
    */
   const cart = useCartStore((state) => state.cart);
   const addToCart = useCartStore((state) => state.addToCart);
-  const clearCart = useCartStore((state) => state.clearCart);
 
   const { data, isLoading, error, isFetching } = useQuery({
     queryKey: ["singleProduct"],
     queryFn: () => getProd(productName),
   });
 
-  if (isLoading || isFetching) return <p>Loading...</p>;
+  if (isLoading || isFetching) return <Loader />;
   if (error) return <p>An Error as occurred please retry</p>;
 
+  const product = data?.product as PRODUCT;
   const {
     id,
     name,
@@ -75,22 +68,11 @@ const Product = ({ productName }: { productName: string }) => {
     price,
     image,
     color,
-    slug,
-  } = data?.product as PRODUCT;
+  } = product;
 
   const isProductInCart = cart.some((product) => product.id === id);
-  const handleAddtoCartClick = () => {
-    addToCart({
-      id,
-      name,
-      size,
-      image,
-      subDescription,
-      price,
-      slug,
-      quantity,
-    });
-
+  const handleCartClick = () => {
+    addToCart({ ...product, quantity });
     toggleModalCart();
   };
 
@@ -123,7 +105,10 @@ const Product = ({ productName }: { productName: string }) => {
             <div className="prod-page-types">
               <h2>{subDescription}</h2>
               <div className="prod-page-skins">
-                <span className="bold">{productType}</span> for{" "}
+                <span className="bold">
+                  {productType === "toning_mist" ? "toning mist" : productType}
+                </span>
+                <span> for </span>
                 <span className="bold">{skinType.join(" / ")}</span> skin
               </div>
               <span className="prod-page-size">{size}</span>
@@ -150,13 +135,12 @@ const Product = ({ productName }: { productName: string }) => {
                 </div>
               )}
               <button
-                className={`add-to-cart ${image.url}`}
+                className="add-to-cart"
                 disabled={isProductInCart}
-                onClick={handleAddtoCartClick}
+                onClick={handleCartClick}
               >
-                <>{isProductInCart ? "in Cart" : "Add to Cart"}</>
+                {isProductInCart ? "in Cart" : "Add to Cart"}
               </button>
-              <button onClick={clearCart}>clearCart</button>
             </div>
             <ExtraContent
               id={id}
